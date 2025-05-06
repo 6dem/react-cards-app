@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
-import { QuestionCard } from "../../components/QuestionCard"
+import { QuestionCardList } from "../../components/QuestionCardList"
 import { API_URL } from "../../constants"
-import cls from "./HomePage.module.css"
 
 export const HomePage = () => {
     const [questions, setQuestions] = useState([])
@@ -25,9 +24,7 @@ export const HomePage = () => {
 
     return (
         <>
-            {questions.map((card, index) => {
-                return <QuestionCard className={cls} card={card} key={index} />
-            })}
+            <QuestionCardList cards={questions} />
         </>
     )
 }
