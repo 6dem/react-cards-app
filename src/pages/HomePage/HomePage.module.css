@@ -8,3 +8,11 @@
     align-items: center;
     gap: 10px;
 }
+
+.noCards {
+    margin: 0 auto;
+    text-align: center;
+    opacity: 0.5;
+    font-size: 24px;
+    color: var(--text-color);
+}

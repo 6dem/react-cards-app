@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { Loader } from "../../components/Loader"
 import { QuestionCardList } from "../../components/QuestionCardList"
 import { SearchInput } from "../../components/SearchInput"
@@ -18,6 +18,10 @@ export const HomePage = () => {
         return questions
     })
 
+    const cards = useMemo(() => {
+        return questions.filter((d) => d.question.toLowerCase().includes(searchValue.trim().toLowerCase()))
+    }, [questions, searchValue])
+
     useEffect(() => {
         getQuestions("react-questions")
     }, [])
@@ -31,9 +35,12 @@ export const HomePage = () => {
             <div className={cls.controlsContainer}>
                 <SearchInput value={searchValue} onChange={onSearchChangeValueHandler} />
             </div>
+
             {isLoading && <Loader />}
             {error && <p>{error}</p>}
-            <QuestionCardList cards={questions} />
+            {cards.length === 0 && <p className={cls.noCards}>no cards...</p>}
+
+            <QuestionCardList cards={cards} />
         </>
     )
 }
