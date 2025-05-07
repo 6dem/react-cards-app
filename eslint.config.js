@@ -31,6 +31,7 @@ export default [
             ...reactHooks.configs.recommended.rules,
             "react/jsx-no-target-blank": "error",
             "react/prop-types": "warn",
+            "react/display-name": "off",
             "no-unused-vars": ["error", { varsIgnorePattern: "^[A-Z_]" }],
             "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
             "prettier/prettier": [
