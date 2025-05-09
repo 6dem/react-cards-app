@@ -1,13 +1,30 @@
 import { useEffect, useMemo, useRef, useState } from "react"
-import { Button } from "../../components/Button"
 import { Loader } from "../../components/Loader"
+import { Pagination } from "../../components/Pagination"
 import { QuestionCardList } from "../../components/QuestionCardList"
 import { SearchInput } from "../../components/SearchInput"
+import { Select } from "../../components/Select"
 import { API_URL } from "../../constants"
 import { useFetch } from "../../hooks/useFetch"
 import cls from "./HomePage.module.css"
 
 const DEFAULT_PER_PAGE = 12
+
+const sortOptions = [
+    { value: "", label: "sort by" },
+    { value: "hr", label: "" },
+    { value: "_sort=level", label: "Level ↑" },
+    { value: "_sort=-level", label: "Level ↓" },
+    { value: "_sort=completed", label: "Completed 1st" },
+    { value: "_sort=-completed", label: "Incomplete 1st" },
+]
+
+const countOptions = [
+    { value: "12", label: "12" },
+    { value: "20", label: "20" },
+    { value: "40", label: "40" },
+    { value: "60", label: "60" },
+]
 
 export const HomePage = () => {
     const [searchParams, setSearchParams] = useState(`?_page=1&_per_page=${DEFAULT_PER_PAGE}`)
@@ -15,6 +32,7 @@ export const HomePage = () => {
     const [questions, setQuestions] = useState({})
     const [searchValue, setSearchValue] = useState("")
     const [sortSelectValue, setSortSelectValue] = useState("")
+    const [countSelectValue, setCountSelectValue] = useState("")
 
     const controlsContainerRef = useRef()
 
@@ -50,13 +68,19 @@ export const HomePage = () => {
     const onSortSelectChangeHandler = (event) => {
         setSortSelectValue(event.target.value)
         setActivePageNumber(1)
-        setSearchParams(`?_page=1&_per_page=${DEFAULT_PER_PAGE}&${event.target.value}`)
+        setSearchParams(`?_page=1&_per_page=${countSelectValue}&${event.target.value}`)
+    }
+
+    const onCountSelectChangeHandler = (event) => {
+        setCountSelectValue(event.target.value)
+        setActivePageNumber(1)
+        setSearchParams(`?_page=1&_per_page=${event.target.value}&${sortSelectValue}`)
     }
 
     const paginationHandler = (event) => {
         if (event.target.tagName === "BUTTON") {
             setActivePageNumber(+event.target.textContent)
-            setSearchParams(`?_page=${event.target.textContent}&_per_page=${DEFAULT_PER_PAGE}&${sortSelectValue}`)
+            setSearchParams(`?_page=${event.target.textContent}&_per_page=${countSelectValue}&${sortSelectValue}`)
         }
         controlsContainerRef.current.scrollIntoView({ behavior: "smooth" })
     }
@@ -66,14 +90,8 @@ export const HomePage = () => {
             <div className={cls.controlsContainer} ref={controlsContainerRef}>
                 <SearchInput value={searchValue} onChange={onSearchChangeValueHandler} />
 
-                <select value={sortSelectValue} onChange={onSortSelectChangeHandler} className={cls.select}>
-                    <option value="">sort by</option>
-                    <hr />
-                    <option value="_sort=level">Level ↑</option>
-                    <option value="_sort=-level">Level ↓</option>
-                    <option value="_sort=completed">Completed 1st</option>
-                    <option value="_sort=-completed">Incomplete 1st</option>
-                </select>
+                <Select value={sortSelectValue} onChange={onSortSelectChangeHandler} options={sortOptions} />
+                <Select value={countSelectValue} onChange={onCountSelectChangeHandler} options={countOptions} />
             </div>
 
             {isLoading && <Loader />}
@@ -84,15 +102,9 @@ export const HomePage = () => {
             {cards.length === 0 ? (
                 <p className={cls.noCards}>no cards...</p>
             ) : (
-                <div className={cls.paginationContainer} onClick={paginationHandler}>
-                    {pagination.map((value) => {
-                        return (
-                            <Button isActive={value === activePageNumber ? true : false} key={value}>
-                                {value}
-                            </Button>
-                        )
-                    })}
-                </div>
+                pagination.length > 1 && (
+                    <Pagination onClick={paginationHandler} pages={pagination} activePageNumber={activePageNumber} />
+                )
             )}
         </>
     )
