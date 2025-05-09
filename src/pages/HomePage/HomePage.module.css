@@ -1,6 +1,6 @@
 .controlsContainer {
     width: 100%;
-    min-width: 800px;
+    min-width: min(800px, 100%);
     margin: 0 auto;
     padding: 15px 0;
     display: flex;
@@ -15,4 +15,26 @@
     opacity: 0.5;
     font-size: 24px;
     color: var(--text-color);
+}
+
+.select {
+    height: 40px;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    flex-grow: 1;
+    overflow: auto;
+}
+
+.select:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 576px) {
+    .controlsContainer {
+        flex-wrap: wrap-reverse;
+    }
 }
