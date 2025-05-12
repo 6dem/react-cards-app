@@ -32,7 +32,7 @@ export const HomePage = () => {
     const [questions, setQuestions] = useState({})
     const [searchValue, setSearchValue] = useState("")
     const [sortSelectValue, setSortSelectValue] = useState("")
-    const [countSelectValue, setCountSelectValue] = useState("")
+    const [countSelectValue, setCountSelectValue] = useState(`${DEFAULT_PER_PAGE}`)
 
     const controlsContainerRef = useRef()
 
@@ -81,8 +81,8 @@ export const HomePage = () => {
         if (event.target.tagName === "BUTTON") {
             setActivePageNumber(+event.target.textContent)
             setSearchParams(`?_page=${event.target.textContent}&_per_page=${countSelectValue}&${sortSelectValue}`)
+            controlsContainerRef.current.scrollIntoView({ behavior: "smooth" })
         }
-        controlsContainerRef.current.scrollIntoView({ behavior: "smooth" })
     }
 
     return (
