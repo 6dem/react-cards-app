@@ -10,3 +10,16 @@ export const Loader = () => {
         </div>
     )
 }
+
+export const SmallLoader = () => {
+    return (
+        <span className={cls.smallLoader}>
+            <div className={cls.newtonsCradle}>
+                <div className={cls.newtonsCradleDot}></div>
+                <div className={cls.newtonsCradleDot}></div>
+                <div className={cls.newtonsCradleDot}></div>
+                <div className={cls.newtonsCradleDot}></div>
+            </div>
+        </span>
+    )
+}
