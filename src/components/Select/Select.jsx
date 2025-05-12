@@ -1,9 +1,9 @@
 import cls from "./Select.module.css"
 
-export const Select = (props) => {
+export const Select = ({ value, onChange, options, className = cls.select }) => {
     return (
-        <select value={props.value} onChange={props.onChange} className={cls.select}>
-            {props.options.map(({ value, label }, index) =>
+        <select value={value} onChange={onChange} className={className}>
+            {options.map(({ value, label }, index) =>
                 value === "hr" ? (
                     <hr key={index} />
                 ) : (
