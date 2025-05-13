@@ -33,18 +33,22 @@
     width: 20px;
     height: 20px;
     padding-left: 5px;
+    position: relative;
 }
 
 .newtonsCradle {
-    --uib-size: 20px;
+    --uib-size: 50px;
     --uib-speed: 1.2s;
     --uib-color: var(--btn-text-color);
-    position: relative;
+    position: absolute;
+    left: -10px;
+    top: -14px;
     display: flex;
     align-items: center;
     justify-content: center;
     width: var(--uib-size);
     height: var(--uib-size);
+    transform: scale(0.4);
 }
 
 .newtonsCradleDot {
