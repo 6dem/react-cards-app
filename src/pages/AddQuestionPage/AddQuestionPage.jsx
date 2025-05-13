@@ -4,7 +4,7 @@ import { Button } from "../../components/Button"
 import { Loader } from "../../components/Loader"
 import { API_URL } from "../../constants"
 import { artificialDelay } from "../../utils/artificial-delay"
-import cls from "./AddQuestion.module.css"
+import cls from "./AddQuestionPage.module.css"
 
 const createCardAction = async (_prevState, formData) => {
     try {
@@ -40,7 +40,7 @@ const createCardAction = async (_prevState, formData) => {
     }
 }
 
-export const AddQuestion = () => {
+const AddQuestionPage = () => {
     const [formState, formAction, isPending] = useActionState(createCardAction, { clearForm: true })
 
     return (
@@ -131,3 +131,5 @@ export const AddQuestion = () => {
         </>
     )
 }
+
+export default AddQuestionPage
