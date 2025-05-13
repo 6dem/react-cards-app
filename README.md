@@ -1,12 +1,40 @@
-# React + Vite
+# React Cards
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**React Cards** — это обучающее веб-приложение, разработанное на базе React, предназначенное для изучения ключевых концепций и инструментов React через интерактивную работу с карточками вопросов и ответов.
 
-Currently, two official plugins are available:
+## 📚 Описание
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Проект создан в рамках полного курса по React и охватывает как базовые, так и продвинутые темы. Карточки загружаются из локальной базы данных (`json-server`), доступны функции создания, редактирования, удаления, сортировки, фильтрации и пагинации. Реализованы темизация (светлая/тёмная тема), аутентификация и защищённые маршруты.
 
-## Expanding the ESLint configuration
+## ⚙️ Технологии
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React 19**
+- **Vite** — сборка и запуск
+- **React Router v7** — маршрутизация
+- **React Hooks** — `useState`, `useEffect`, `useContext`, `useMemo`, `useRef`, `useLayoutEffect`, `useActionState`
+- **Кастомные хуки** — `useFetch`, `useAuth`, `useTheme`
+- **React Toastify** — уведомления
+- **json-server** — эмуляция REST API
+- **ESLint + Prettier** — статический анализ и форматирование кода
+- **CSS Modules** — модульная стилизация компонентов
+
+## 🚀 Быстрый старт
+
+### 1. Клонировать репозиторий
+
+```bash
+git clone https://github.com/6dem/react-card-app.git
+cd react-card-app
+```
+
+### 2. Установить зависимости
+
+```bash
+npm run server
+```
+
+### 3. Запустить приложение
+
+```bash
+npm run dev
+```
