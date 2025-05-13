@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { MainLayout } from "./components/MainLayout"
 import { AddQuestionPageLazy } from "./pages/AddQuestionPage"
+import { EditQuestionPage } from "./pages/EditQuestionPage"
 import { HomePage } from "./pages/HomePage"
 import { NotFoundPage } from "./pages/NotFoundPage"
 import { QuestionPage } from "./pages/QuestionPage"
@@ -13,7 +14,7 @@ function App() {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/forbidden" element={<div>NO WAY</div>} />
                     <Route path="/add-question" element={<AddQuestionPageLazy />} />
-                    <Route path="/edit-question/:id" element={<div>Edit question</div>} />
+                    <Route path="/edit-question/:id" element={<EditQuestionPage />} />
                     <Route path="/question/:id" element={<QuestionPage />} />
 
                     <Route path="*" element={<NotFoundPage />} />
