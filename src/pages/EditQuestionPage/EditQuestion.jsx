@@ -1,6 +1,7 @@
 import { useActionState } from "react"
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
+import { TrashIcon } from "../../components/icons"
 import { Loader } from "../../components/Loader"
 import { QuestionForm } from "../../components/QuestionForm"
 import { API_URL } from "../../constants"
@@ -74,7 +75,7 @@ export const EditQuestion = ({ initialState = {} }) => {
                     disabled={isPending || isQuestionRemoving}
                     onClick={onRemoveQuestionHandler}
                 >
-                    X
+                    <TrashIcon />
                 </button>
                 <QuestionForm
                     formState={formState}
