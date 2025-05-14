@@ -3,7 +3,7 @@ import { AuthProvider } from "./auth/AuthProvider"
 import { MainLayout } from "./components/MainLayout"
 import { useAuth } from "./hooks/useAuth"
 import { AddQuestionPageLazy } from "./pages/AddQuestionPage"
-import { EditQuestionPage } from "./pages/EditQuestionPage"
+import { EditQuestionPageLazy } from "./pages/EditQuestionPage"
 import { ForbiddenPage } from "./pages/ForbiddenPage"
 import { HomePage } from "./pages/HomePage"
 import { NotFoundPage } from "./pages/NotFoundPage"
@@ -27,7 +27,7 @@ function App() {
                         <Route path="/question/:id" element={<QuestionPage />} />
 
                         <Route element={<ProtectedRoutes />}>
-                            <Route path="/edit-question/:id" element={<EditQuestionPage />} />
+                            <Route path="/edit-question/:id" element={<EditQuestionPageLazy />} />
                             <Route path="/add-question" element={<AddQuestionPageLazy />} />
                         </Route>
 
