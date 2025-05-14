@@ -8,6 +8,7 @@ import { ForbiddenPage } from "./pages/ForbiddenPage"
 import { HomePage } from "./pages/HomePage"
 import { NotFoundPage } from "./pages/NotFoundPage"
 import { QuestionPage } from "./pages/QuestionPage"
+import { ThemeProvider } from "./theme"
 
 const ProtectedRoutes = () => {
     const { isAuth } = useAuth()
@@ -18,24 +19,26 @@ const ProtectedRoutes = () => {
 
 function App() {
     return (
-        <AuthProvider>
-            <BrowserRouter>
-                <Routes>
-                    <Route element={<MainLayout />}>
-                        <Route path="/" element={<HomePage />} />
-                        <Route path="/forbidden" element={<ForbiddenPage />} />
-                        <Route path="/question/:id" element={<QuestionPage />} />
+        <ThemeProvider>
+            <AuthProvider>
+                <BrowserRouter>
+                    <Routes>
+                        <Route element={<MainLayout />}>
+                            <Route path="/" element={<HomePage />} />
+                            <Route path="/forbidden" element={<ForbiddenPage />} />
+                            <Route path="/question/:id" element={<QuestionPage />} />
 
-                        <Route element={<ProtectedRoutes />}>
-                            <Route path="/edit-question/:id" element={<EditQuestionPageLazy />} />
-                            <Route path="/add-question" element={<AddQuestionPageLazy />} />
+                            <Route element={<ProtectedRoutes />}>
+                                <Route path="/edit-question/:id" element={<EditQuestionPageLazy />} />
+                                <Route path="/add-question" element={<AddQuestionPageLazy />} />
+                            </Route>
+
+                            <Route path="*" element={<NotFoundPage />} />
                         </Route>
-
-                        <Route path="*" element={<NotFoundPage />} />
-                    </Route>
-                </Routes>
-            </BrowserRouter>
-        </AuthProvider>
+                    </Routes>
+                </BrowserRouter>
+            </AuthProvider>
+        </ThemeProvider>
     )
 }
 

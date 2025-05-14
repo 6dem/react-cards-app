@@ -3,6 +3,7 @@ import ReactLogo from "../../assets/react.svg"
 import { AUTH_STORAGE } from "../../constants"
 import { useAuth } from "../../hooks/useAuth"
 import { Button } from "../Button"
+import { ThemeToggler } from "../ThemeToggler/ThemeToggler"
 import cls from "./Header.module.css"
 
 export const Header = () => {
@@ -26,6 +27,7 @@ export const Header = () => {
                 <Button onClick={loginHandler} isActive={!isAuth}>
                     {isAuth ? "Log out" : "Log in"}
                 </Button>
+                <ThemeToggler />
             </div>
         </header>
     )

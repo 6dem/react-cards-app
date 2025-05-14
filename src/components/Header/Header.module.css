@@ -2,6 +2,7 @@
     width: 100%;
     height: 70px;
     background-color: var(--main-bg-color);
+    color: var(--text-color);
     padding: 0 30px;
     display: flex;
     justify-content: space-between;

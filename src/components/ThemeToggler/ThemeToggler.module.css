@@ -1,0 +1,53 @@
+.theme {
+    --bg-color: var(--main-bg-color);
+    --main-color: var(--text-color);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background-color: var(--bg-color);
+    border-radius: 100%;
+    border: 2px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+}
+
+.input {
+    cursor: pointer;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    opacity: 0;
+}
+
+.icon {
+    position: absolute;
+    top: calc(50% - 11.5px);
+    left: calc(50% - 11.5px);
+    width: 23px;
+    height: 23px;
+}
+
+.icon.iconMoon {
+    fill: var(--main-color);
+}
+
+.icon.iconSun {
+    stroke: var(--main-color);
+    display: none;
+}
+
+.input:checked ~ .icon.iconSun {
+    display: block;
+}
+
+.input:checked ~ .icon.iconMoon {
+    display: none;
+}
+
+.theme:active {
+    box-shadow: 0px 0px var(--main-color);
+    transform: translate(3px, 3px);
+}

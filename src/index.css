@@ -1,9 +1,9 @@
 :root {
-    --main-bg-color: #23272f;
-    --text-color: #fff;
-    --btn-bg-color: #16444f;
-    --btn-text-color: #57c4dc;
-    --card-bg-color: #343a46;
+    --main-bg-color: #fff;
+    --text-color: #000;
+    --btn-bg-color: #383b3f;
+    --btn-text-color: #fff;
+    --card-bg-color: #ebedf0;
     --green-color: #219679;
 
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -35,6 +35,22 @@ body {
     background-color: var(--main-bg-color);
 }
 
+.darkLayout {
+    --main-bg-color: #23272f;
+    --text-color: #fff;
+    --btn-bg-color: #16444f;
+    --btn-text-color: #57c4dc;
+    --card-bg-color: #343a46;
+}
+
+.lightLayout {
+    --main-bg-color: #fff;
+    --text-color: #000;
+    --btn-bg-color: #383b3f;
+    --btn-text-color: #fff;
+    --card-bg-color: #ebedf0;
+}
+/* 
 @media (prefers-color-scheme: light) {
     :root {
         --main-bg-color: #fff;
@@ -53,4 +69,4 @@ body {
         --btn-text-color: #57c4dc;
         --card-bg-color: #343a46;
     }
-}
+} */
