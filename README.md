@@ -18,6 +18,18 @@
 - **ESLint + Prettier** — статический анализ и форматирование кода
 - **CSS Modules** — модульная стилизация компонентов
 
+## 📸 Screenshots
+
+Main page
+![Main page](public/screenshots/main-page-screenshot.png)
+
+Card page
+![Card page](public/screenshots/card-page-screenshot.png)
+
+Edit card page
+![Edit card page](public/screenshots/edit-card-page-screenshot.png)
+
+
 ## 🚀 Быстрый старт
 
 ### 1. Клонировать репозиторий
@@ -33,7 +45,7 @@ cd react-card-app
 npm install
 ```
 
-### 3. Запустить сервер 
+### 3. Запустить сервер
 
 ```bash
 npm run server
